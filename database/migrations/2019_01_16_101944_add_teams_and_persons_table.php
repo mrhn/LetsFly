@@ -20,13 +20,10 @@ class AddTeamsAndPersonsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('persons', function (Blueprint $table) {
+        Schema::create('people', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->float('experience');
-
-            $table->integer('team_id')->unsigned();
-            $table->foreign('team_id')->references('id')->on('teams');
 
             $table->timestamps();
         });
