@@ -13,5 +13,7 @@ php-cs-fixer fix app --rules=@PSR2,blank_line_before_statement,no_unused_imports
 php artisan code:analyse
 ```
 
-
 # E/R diagram
+
+# Relevant design choices
+- Floats are unprecise, but a little bit easier to work with, rounding instead.

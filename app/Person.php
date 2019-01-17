@@ -13,6 +13,7 @@ use Illuminate\Support\Collection;
  * @property float $experience
  * @property float $educationLevel
  * @property float $experienceLevel
+ * @property array $skillLevels
  *
  * @property Collection|Education[] $education
  * @property Collection|Skill[] $skills
@@ -32,7 +33,9 @@ class Person extends Model
 
     public function skillLevel(Skill $skill): float
     {
-        return $skill->coefficient * $this->educationLevel * $this->experienceLevel;
+        $skillLevel = $skill->coefficient * $this->educationLevel * $this->experienceLevel;
+
+        return round($skillLevel, 2);
     }
 
     public function getEducationLevelAttribute($value): float
