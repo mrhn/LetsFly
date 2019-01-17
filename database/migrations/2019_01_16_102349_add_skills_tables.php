@@ -24,10 +24,10 @@ class AddSkillsTables extends Migration
             $table->integer('person_id')->unsigned();
             $table->integer('skill_id')->unsigned();
 
-            $table->foreign('person_id')->references('id')->on('persons');
+            $table->foreign('person_id')->references('id')->on('people');
             $table->foreign('skill_id')->references('id')->on('skills');
 
-            $table->integer('coefficient')->unsigned();
+            $table->float('coefficient');
         });
     }
 
@@ -38,7 +38,7 @@ class AddSkillsTables extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('person_skill');
         Schema::dropIfExists('skills');
-        Schema::dropIfExists('person_skills');
     }
 }

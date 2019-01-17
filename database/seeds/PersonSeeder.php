@@ -12,14 +12,14 @@ class PersonSeeder extends Seeder
      */
     public function run()
     {
-        $this->createManagers();
         $this->createBackenders();
+        $this->createManagers();
         $this->createFrontenders();
     }
 
     public function createBackenders()
     {
-        DB::table('persons')->insert([
+        DB::table('people')->insert([
             [
                 'name' => 'Backender PHD',
                 'experience' => 3,
@@ -33,20 +33,20 @@ class PersonSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => 'Backender DEVELOPER',
+                'name' => 'Backender DEVELOPER 1',
                 'experience' => 5,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => 'Backender DEVELOPER',
-                'experience' => 6,
+                'name' => 'Backender DEVELOPER 2',
+                'experience' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'name' => 'Backender INTERN',
-                'experience' => 9,
+                'experience' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
@@ -72,7 +72,7 @@ class PersonSeeder extends Seeder
                 'person_id' => 4,
                 'skill_id' => 1,
                 'coefficient' => 0.6,
-            ],            [
+            ], [
                 'person_id' => 5,
                 'skill_id' => 1,
                 'coefficient' => 0.4,
@@ -95,7 +95,7 @@ class PersonSeeder extends Seeder
             [
                 'person_id' => 4,
                 'education_id' => 1,
-            ],            [
+            ], [
                 'person_id' => 5,
                 'education_id' => 2,
             ],
@@ -104,11 +104,119 @@ class PersonSeeder extends Seeder
 
     public function createManagers()
     {
+        DB::table('people')->insert([
+            [
+                'name' => 'Manager 1',
+                'experience' => 4,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'name' => 'Manager 2',
+                'experience' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'name' => 'Manager 3',
+                'experience' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ]);
 
+
+        DB::table('person_skill')->insert([
+                [
+                    'person_id' => 6,
+                    'skill_id' => 3,
+                    'coefficient' => 1.0,
+                ],
+                [
+                    'person_id' => 7,
+                    'skill_id' => 3,
+                    'coefficient' => 0.8,
+                ],
+                [
+                    'person_id' => 8,
+                    'skill_id' => 3,
+                    'coefficient' => 0.6,
+                ],
+            ]
+        );
+
+        DB::table('education_person')->insert([
+            [
+                'person_id' => 6,
+                'education_id' => 4,
+            ],
+            [
+                'person_id' => 7,
+                'education_id' => 3,
+            ],
+            [
+                'person_id' => 8,
+                'education_id' => 2,
+            ],
+        ]);
     }
 
     public function createFrontenders()
     {
+        DB::table('people')->insert([
+            [
+                'name' => 'Frontender 1',
+                'experience' => 5,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'name' => 'Frontender 2',
+                'experience' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'name' => 'Frontender 3',
+                'experience' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ]);
 
+
+        DB::table('person_skill')->insert([
+                [
+                    'person_id' => 9,
+                    'skill_id' => 2,
+                    'coefficient' => 1.0,
+                ],
+                [
+                    'person_id' => 10,
+                    'skill_id' => 2,
+                    'coefficient' => 0.7,
+                ],
+                [
+                    'person_id' => 11,
+                    'skill_id' => 2,
+                    'coefficient' => 0.4,
+                ],
+            ]
+        );
+
+        DB::table('education_person')->insert([
+            [
+                'person_id' => 9,
+                'education_id' => 4,
+            ],
+            [
+                'person_id' => 10,
+                'education_id' => 3,
+            ],
+            [
+                'person_id' => 11,
+                'education_id' => 2,
+            ],
+        ]);
     }
 }

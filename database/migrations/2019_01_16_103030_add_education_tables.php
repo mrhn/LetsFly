@@ -16,7 +16,7 @@ class AddEducationTables extends Migration
         Schema::create('educations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('coefficient')->unsigned();
+            $table->float('coefficient');
 
             $table->timestamps();
         });
@@ -25,7 +25,7 @@ class AddEducationTables extends Migration
             $table->integer('person_id')->unsigned();
             $table->integer('education_id')->unsigned();
 
-            $table->foreign('person_id')->references('id')->on('persons');
+            $table->foreign('person_id')->references('id')->on('people');
             $table->foreign('education_id')->references('id')->on('educations');
         });
     }
@@ -37,6 +37,7 @@ class AddEducationTables extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('education_person');
+        Schema::dropIfExists('educations');
     }
 }
