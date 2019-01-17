@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-
 use App\Person;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
@@ -29,6 +28,7 @@ class PersonService
     {
         if ($combinations === 0) {
             $result[] = $start;
+
             return ;
         }
 

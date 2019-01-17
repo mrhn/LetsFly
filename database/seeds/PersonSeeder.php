@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 
 class PersonSeeder extends Seeder
 {
@@ -126,7 +126,8 @@ class PersonSeeder extends Seeder
         ]);
 
 
-        DB::table('person_skill')->insert([
+        DB::table('person_skill')->insert(
+            [
                 [
                     'person_id' => 6,
                     'skill_id' => 3,
@@ -185,7 +186,8 @@ class PersonSeeder extends Seeder
         ]);
 
 
-        DB::table('person_skill')->insert([
+        DB::table('person_skill')->insert(
+            [
                 [
                     'person_id' => 9,
                     'skill_id' => 2,
