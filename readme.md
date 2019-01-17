@@ -6,7 +6,7 @@ Is a system to compose and adjust team structures.
 # Development cmds
 
 ```bash
-php-cs-fixer fix database --rules=@PSR2,blank_line_before_statement,no_unused_imports,ordered_imports
+php-cs-fixer fix app --rules=@PSR2,blank_line_before_statement,no_unused_imports,ordered_imports
 ```
 
 ```bash
