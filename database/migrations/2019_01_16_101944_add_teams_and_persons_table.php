@@ -16,6 +16,7 @@ class AddTeamsAndPersonsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('priority');
 
             $table->timestamps();
         });
@@ -26,6 +27,16 @@ class AddTeamsAndPersonsTable extends Migration
             $table->float('experience');
 
             $table->timestamps();
+        });
+
+        Schema::create('person_team', function (Blueprint $table) {
+            $table->integer('person_id')->unsigned();
+            $table->integer('team_id')->unsigned();
+
+            $table->foreign('person_id')->references('id')->on('people');
+            $table->foreign('team_id')->references('id')->on('teams');
+
+            $table->string('skill');
         });
     }
 
