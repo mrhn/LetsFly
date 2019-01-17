@@ -15,31 +15,31 @@ class EducationSeeder extends Seeder
         DB::table('educations')->insert([
             [
                 'name' => 'Intern',
-                'coefficient' => 40,
+                'coefficient' => 0.4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'name' => 'Technical College',
-                'coefficient' => 70,
+                'coefficient' => 0.7,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'name' => 'Bachelor Degree',
-                'coefficient' => 80,
+                'coefficient' => 0.8,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'name' => 'Master',
-                'coefficient' => 90,
+                'coefficient' => 0.9,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'name' => 'PHD',
-                'coefficient' => 100,
+                'coefficient' => 1.0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
