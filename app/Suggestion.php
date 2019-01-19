@@ -2,9 +2,6 @@
 
 namespace App;
 
-use App\Jobs\SuggestTeamJob;
-use Illuminate\Database\Eloquent\Model;
-
 class Suggestion
 {
     /** @var array */

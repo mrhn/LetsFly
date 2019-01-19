@@ -6,7 +6,6 @@ use App\Http\Requests\CreateTeamRequest;
 use App\Http\Resources\TeamResource;
 use App\Team;
 use App\TeamComposition;
-use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {

@@ -3,11 +3,9 @@
 namespace App\Services;
 
 use App\Person;
-use App\Skill;
 use App\Suggestion;
 use App\Team;
 use App\TeamComposition;
-use Illuminate\Support\Collection;
 
 class TeamService
 {
@@ -48,6 +46,7 @@ class TeamService
     {
         if (!count($rest)) {
             $result[] = new Suggestion($suggestion);
+
             return;
         }
 
@@ -57,7 +56,7 @@ class TeamService
         unset($rest[$key]);
 
         foreach ($suggestions as $tmp) {
-            foreach($tmp as $ele) {
+            foreach ($tmp as $ele) {
                 $ele->forSkill = $key;
             }
 
