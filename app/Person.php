@@ -25,7 +25,7 @@ class Person extends Model
 {
     const EXPERIENCE_MARK = 3.0;
 
-    public function getSkillLevelsAttribute($value): array
+    public function getSkillLevelsAttribute(): array
     {
         return $this->skills->reduce(function (array $carry, Skill $skill) {
             $carry[$skill->name] = $this->skillLevel($skill);
@@ -41,17 +41,22 @@ class Person extends Model
         return round($skillLevel, 2);
     }
 
-    public function getSkillAttribute($value): ?string
+    public function getSkill(string $skill): Skill
+    {
+        return $this->skills->firstWhere('name', $skill);
+    }
+
+    public function getSkillAttribute(): ?string
     {
         return $this->pivot->skill ?? null;
     }
 
-    public function getEducationLevelAttribute($value): float
+    public function getEducationLevelAttribute(): float
     {
         return $this->education->max('coefficient');
     }
 
-    public function getExperienceLevelAttribute($value): float
+    public function getExperienceLevelAttribute(): float
     {
         if ($this->experience >= self::EXPERIENCE_MARK) {
             return 1.0;

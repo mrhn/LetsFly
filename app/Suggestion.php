@@ -15,6 +15,9 @@ class Suggestion
         $this->suggestions = $suggestions;
     }
 
+    /**
+     * Calculated how well a set of Person will fit the team
+     */
     public function calculateFit(Team $team)
     {
         $sum = 0;
@@ -23,6 +26,8 @@ class Suggestion
             $skill = $suggestion->skills->where('name', $suggestion->forSkill)->first();
             $sum += $suggestion->skillLevel($skill);
         }
+
+        // Teams priority is converted into a value and matched how much it fits
         $this->fit = abs($team->priorityValue - $sum / count($this->suggestions));
     }
 }

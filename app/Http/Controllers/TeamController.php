@@ -6,10 +6,11 @@ use App\Http\Requests\CreateTeamRequest;
 use App\Http\Resources\TeamResource;
 use App\Team;
 use App\TeamComposition;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class TeamController extends Controller
 {
-    public function create(CreateTeamRequest $request)
+    public function create(CreateTeamRequest $request): JsonResource
     {
         $validated = $request->validated();
         /** @var Team $team */
