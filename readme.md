@@ -17,3 +17,7 @@ php artisan code:analyse
 
 # Relevant design choices
 - Floats are unprecise, but a little bit easier to work with, rounding instead.
+
+# Taking the project further
+- Making the user choose between a set amount of the best team combinations
+- Greedy version of suggestion algorithm can be made, to avoid calculating fit for x team suggestions (can not avoid by skill combinations thou)
