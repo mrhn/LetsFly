@@ -14,3 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/people', 'PersonController@all');
+Route::post('/teams', 'TeamController@create');

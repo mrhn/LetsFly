@@ -4,11 +4,13 @@ namespace App\Http\Requests;
 
 use App\Team;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Exists;
 use Illuminate\Validation\Rules\In;
 
 class CreateTeamRequest extends FormRequest
 {
+
     /**
      * Get the validation rules that apply to the request.
      *

@@ -2,6 +2,8 @@
 
 namespace App\Jobs;
 
+use App\Services\TeamService;
+use App\Team;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -12,17 +14,25 @@ class SuggestTeamJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    /** @var Team */
+    private $team;
+
     /** @var array */
     private $teamComposition;
+
+    /** @var TeamService */
+    private $teamService;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(array $teamComposition)
+    public function __construct(Team $team, array $teamComposition)
     {
+        $this->team = $team;
         $this->teamComposition = $teamComposition;
+        $this->teamService = app(TeamService::class);
     }
 
     /**
@@ -32,6 +42,6 @@ class SuggestTeamJob implements ShouldQueue
      */
     public function handle()
     {
-
+        $this->teamService->suggest($this->team, $this->teamComposition);
     }
 }

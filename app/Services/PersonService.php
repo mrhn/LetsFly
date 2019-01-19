@@ -19,7 +19,7 @@ class PersonService
     {
         $result = [];
 
-        $this->calculateCombinations([], $this->bySkill($skill)->toArray(), $combinations, $result);
+        $this->calculateCombinations([], $this->bySkill($skill)->all(), $combinations, $result);
 
         return $result;
     }

@@ -13,7 +13,7 @@ class AddEducationTables extends Migration
      */
     public function up()
     {
-        Schema::create('educations', function (Blueprint $table) {
+        Schema::create('education', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->float('coefficient');

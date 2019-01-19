@@ -10,10 +10,13 @@ use Illuminate\Support\Collection;
  * Class Person
  * @package App
  *
+ * @property integer $id
  * @property float $experience
  * @property float $educationLevel
  * @property float $experienceLevel
  * @property array $skillLevels
+ * @property string $skill pivot value
+ * @property string|null $forSkill tmp value for suggestion
  *
  * @property Collection|Education[] $education
  * @property Collection|Skill[] $skills
@@ -36,6 +39,11 @@ class Person extends Model
         $skillLevel = $skill->coefficient * $this->educationLevel * $this->experienceLevel;
 
         return round($skillLevel, 2);
+    }
+
+    public function getSkillAttribute($value): ?string
+    {
+        return $this->pivot->skill ?? null;
     }
 
     public function getEducationLevelAttribute($value): float
