@@ -12,7 +12,7 @@ class EducationSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('educations')->insert([
+        DB::table('education')->insert([
             [
                 'name' => 'Intern',
                 'coefficient' => 0.4,

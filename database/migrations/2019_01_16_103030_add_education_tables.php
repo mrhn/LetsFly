@@ -26,7 +26,7 @@ class AddEducationTables extends Migration
             $table->integer('education_id')->unsigned();
 
             $table->foreign('person_id')->references('id')->on('people');
-            $table->foreign('education_id')->references('id')->on('educations');
+            $table->foreign('education_id')->references('id')->on('education');
         });
     }
 
@@ -38,6 +38,6 @@ class AddEducationTables extends Migration
     public function down()
     {
         Schema::dropIfExists('education_person');
-        Schema::dropIfExists('educations');
+        Schema::dropIfExists('education');
     }
 }

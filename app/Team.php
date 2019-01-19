@@ -34,9 +34,11 @@ class Team extends Model
 
     public function getFitAttribute(): float
     {
-        return round($this->people->sum(function (Person $person): float {
+        $personSkillLevel = $this->people->sum(function (Person $person): float {
             return $person->skillLevel($person->getSkill($person->skill));
-        }) / $this->people->count(), 4);
+        }) / $this->people->count();
+
+        return round($personSkillLevel / $this->priorityValue * 100, 4);
     }
 
     /**

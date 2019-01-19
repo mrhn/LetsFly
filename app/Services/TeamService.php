@@ -58,6 +58,8 @@ class TeamService
             $suggestions = $this->personService->combinationsBySkill($composition->skill, $composition->amount);
             $suggestion[$composition->skill] = $suggestions;
         }
+
+        return $suggestion;
     }
 
     /**
@@ -78,14 +80,13 @@ class TeamService
         unset($rest[$key]);
 
         // Suggestions is an array of array of persons
-        foreach ($suggestions as $peopleSuggestion) {
+        foreach ($suggestion as $peopleSuggestion) {
             // Indicate why we select person with a temporary value
             foreach ($peopleSuggestion as $person) {
                 $person->forSkill = $key;
             }
-
             // Combine the rest of the suggestions recursively
-            $this->combineSuggestions(array_merge($suggestion, $peopleSuggestion), $rest, $result);
+            $this->combineSuggestions(array_merge($suggestions, $peopleSuggestion), $rest, $result);
         }
     }
 

@@ -47,7 +47,8 @@ class AddTeamsAndPersonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('person_team');
         Schema::dropIfExists('people');
+        Schema::dropIfExists('teams');
     }
 }

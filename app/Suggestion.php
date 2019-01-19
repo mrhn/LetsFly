@@ -23,7 +23,7 @@ class Suggestion
         $sum = 0;
         /** @var Person $suggestion */
         foreach ($this->suggestions as $suggestion) {
-            $skill = $suggestion->skills->where('name', $suggestion->forSkill)->first();
+            $skill = $suggestion->getSkill($suggestion->forSkill);
             $sum += $suggestion->skillLevel($skill);
         }
 

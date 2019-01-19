@@ -25,6 +25,10 @@ class Person extends Model
 {
     const EXPERIENCE_MARK = 3.0;
 
+    protected $casts = [
+        'experience' => 'float',
+    ];
+
     public function getSkillLevelsAttribute(): array
     {
         return $this->skills->reduce(function (array $carry, Skill $skill) {
