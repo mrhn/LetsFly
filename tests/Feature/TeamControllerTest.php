@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Team;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -16,19 +17,37 @@ class TeamControllerTest extends TestCase
         $this->artisan('db:seed');
     }
 
+    public function testTeamGet()
+    {
+        /** @var Team $team */
+        $team = factory(Team::class)->create();
+
+        $this->json('GET', 'api/teams/' . $team->id)
+            ->assertOk()
+            ->assertJson(
+                [
+                    'data' => [
+                        'name' => $team->name,
+                        'priority' => $team->priority,
+                    ]
+                ]
+            );
+    }
 
     public function testTeamCreate()
     {
         $response = $this->json('POST', 'api/teams', $this->createData());
 
         $response->assertStatus(201)
-            ->assertJson([
-                'data' => [
-                    'name' => 'martins team',
-                    'priority' => 'medium',
-                    'people' => $this->peopleReponse(),
+            ->assertJson(
+                [
+                    'data' => [
+                        'name' => 'martins team',
+                        'priority' => 'medium',
+                        'people' => $this->peopleReponse(),
+                    ]
                 ]
-            ]);
+            );
 
         // check if the fit is close to 100% can deviate with half a percent
         $this->assertEquals(

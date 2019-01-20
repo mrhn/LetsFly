@@ -11,9 +11,9 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class TeamController extends Controller
 {
-    public function get(Request $request)
+    public function get(Request $request, int $id): JsonResource
     {
-        return new TeamResource(Team::find($request->get('id')));
+        return new TeamResource(Team::find($id));
     }
 
     public function create(CreateTeamRequest $request): JsonResource

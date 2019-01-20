@@ -11,6 +11,8 @@ use Illuminate\Support\Collection;
  * Class Team
  * @package App
  *
+ * @property integer $id
+ * @property string $name
  * @property string $priority
  * @property float $priorityValue
  * @property Collection|Person[] $people
@@ -34,6 +36,9 @@ class Team extends Model
 
     public function getFitAttribute(): float
     {
+        if ($this->people->isEmpty()) {
+            return 0;
+        }
         $personSkillLevel = $this->people->sum(function (Person $person): float {
             return $person->skillLevel($person->getSkill($person->skill));
         }) / $this->people->count();

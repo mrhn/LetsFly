@@ -14,4 +14,5 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/people', 'PersonController@all');
+Route::get('/teams/{id}', 'TeamController@get')->where('id', '[0-9]+');
 Route::post('/teams', 'TeamController@create');
