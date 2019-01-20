@@ -13,7 +13,7 @@ class TeamController extends Controller
 {
     public function get(Request $request, int $id): JsonResource
     {
-        return new TeamResource(Team::find($id));
+        return new TeamResource(Team::findOrFail($id));
     }
 
     public function create(CreateTeamRequest $request): JsonResource

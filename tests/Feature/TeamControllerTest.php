@@ -29,10 +29,25 @@ class TeamControllerTest extends TestCase
                     'data' => [
                         'name' => $team->name,
                         'priority' => $team->priority,
-                    ]
+                    ],
                 ]
             );
     }
+
+    public function testTeamGet404()
+    {
+        $this->json('GET', 'api/teams/' . 404)
+            ->assertStatus(404)
+            ->assertJson(
+                [
+                    'message' => 'Team not found',
+                    'code' => 404,
+                    'status' => 'fail',
+                    'data' => null,
+                ]
+            );
+    }
+
 
     public function testTeamCreate()
     {
@@ -45,7 +60,7 @@ class TeamControllerTest extends TestCase
                         'name' => 'martins team',
                         'priority' => 'medium',
                         'people' => $this->peopleReponse(),
-                    ]
+                    ],
                 ]
             );
 
