@@ -73,6 +73,31 @@ class TeamControllerTest extends TestCase
         );
     }
 
+    public function testTeamCreateValidationError()
+    {
+        $response = $this->json('POST', 'api/teams', []);
+
+        $response->assertStatus(422)
+            ->assertJson(
+                [
+                    'message' => 'Validation error',
+                    'code' => 422,
+                    'status' => 'fail',
+                    'data' => [
+                        'name' => [
+                            "The name field is required."
+                        ],
+                        'priority' => [
+                            "The priority field is required."
+                        ],
+                        'team' => [
+                            'The team field is required.'
+                        ],
+                    ],
+                ]
+            );
+    }
+
     private function createData(): array
     {
         return [
