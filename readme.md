@@ -1,20 +1,25 @@
 # Signifanct flying
 Is a system to compose and adjust team structures.
 
+url: http://37.139.8.134
+horizon: http://37.139.8.134/horizon
+
 # Scope / Assignment
 In regards to what Tore said, rough paraphrasing "we are not trying to be a traditional agency, we are trying to get people to do it our way". I felt this task led down one road, making a CRUD API for a team like structure.
 
 I felt if i should present this to a customer and sell this idea, it should be something special. Everyone can make a CRUD API, i wanted the team formation to be automatic, so the system calculates which team can handle the assignments.
 
 I chose to not include any front end, this is a backend assignment and Tore did agree with this. I thou prioritised the server setup a little more instead. Which is way more relevant for what i should do. There is a JSON API which should be more than enough fun to explore.
-# Adding data
+# Adding data - Using the api
 Tweak the seeders if data needs to be added, run it usual Laravel style. There is sample data i would suggest calling the api with the following call.
+
+There is two get routes, http://37.139.8.134/api/teams/$id and http://37.139.8.134/api/people mostly for data exploration.
 
 Example input
 
 ```bash
 curl -X POST \
-  http://127.0.0.1:8000/api/teams \
+  http://37.139.8.134/api/teams \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'Postman-Token: a46fab9d-b8e3-4e6d-a889-290f1308cffc' \
@@ -39,8 +44,8 @@ curl -X POST \
 }'
 ```
 
-Example response
-```javascript
+Example response (People will be added later on a job in production)
+```
 {
     "data": {
         "id": 46,
@@ -119,6 +124,13 @@ php artisan code:analyse
 
 # Design
 ### E/R diagram
+Note: i draw a weird mix or an ER diagram combined with a class diagram, but 3 years of experience and no one has complained :)
+
+[2. version of ER](https://imgur.com/a/OV0SZdU)
+
+Slept on the team to people relation i found out when making the code.
+
+[1. version](https://imgur.com/a/7Izp2cz)
 
 ## Calculating peoples skill
 I needed to translate a persons abilities into a  number to priorities the teams. The following equation was used.
@@ -137,16 +149,21 @@ Then i create all combinations of the given persons with the skills and calculat
 After the job has ranned, a team is set and how close to the priority it hits is calculated again out from the deviation in percentage. For future proofing this, adding suggestions and tweaking of the teams would be a great feature. 
 
 ### Code Coverage
-![Code Coverage](https://imgur.com/a/7eixyyy)
+[Code Coverage](https://imgur.com/a/7eixyyy)
 
-### choices
+### Choices
 - Floats are unprecise, but a little bit easier to work with, rounding instead.
 - The combination of team suggestions can be quite rough, thats why it is a job (not super scaleable atm).
+- Did not optimise queries using the with statement, which i should haved but ran out of time.
 
 ### Uncertainties
 - How to evaluate peoples skill level, especially experience
 
 ### Taking the project further
 - Making the user choose between a set amount of the best team combinations
+- CRUD routes for manual adjusting the teams
 - Greedy version of suggestion algorithm can be made, to avoid calculating fit for x team suggestions (can not avoid by skill combinations thou)
 - There is a dynamic programming solution to this problem, if we play with the thought that skill calculation is quite a though operation.
+
+# Time used
+[toggl](https://imgur.com/a/4qbl3h0)
