@@ -34,7 +34,10 @@ class TeamController extends Controller
     private function parseTeamComposition(array $teamComposition): array
     {
         return array_map(function (array $teamComp): TeamComposition {
-            return new TeamComposition($teamComp['amount'], $teamComp['skill']);
+            return new TeamComposition(
+                $teamComp['amount'],
+                ucfirst(strtolower($teamComp['skill']))
+            );
         }, $teamComposition);
     }
 }
