@@ -4,8 +4,8 @@ namespace Tests\Feature;
 
 use App\Team;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class TeamControllerTest extends TestCase
 {

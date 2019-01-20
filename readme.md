@@ -40,7 +40,7 @@ curl -X POST \
 ```
 
 Example response
-```bash
+```javascript
 {
     "data": {
         "id": 46,
