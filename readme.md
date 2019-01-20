@@ -1,7 +1,7 @@
 # Signifanct flying
 Is a system to compose and adjust team structures.
 
-# Scope
+# Scope / Assignment
 
 # Development cmds
 
@@ -13,7 +13,11 @@ php-cs-fixer fix app --rules=@PSR2,blank_line_before_statement,no_unused_imports
 php artisan code:analyse
 ```
 
-# E/R diagram
+# Design
+## E/R diagram
+
+## Code Coverage
+![Code Coverage](https://imgur.com/a/7eixyyy)
 
 # Relevant design choices
 - Floats are unprecise, but a little bit easier to work with, rounding instead.
