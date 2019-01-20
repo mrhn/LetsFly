@@ -63,7 +63,7 @@ class TeamService
     }
 
     /**
-     * @param Suggestion[] result
+     * @param Suggestion[] $result
      */
     private function combineSuggestions(array $suggestions, array $rest, &$result): void
     {
@@ -72,10 +72,8 @@ class TeamService
 
             return;
         }
-
-        // get first element and unset it, need for the combination logic PHP 7.2 has a nicer way of doing this.
-        $keys = array_keys($rest);
-        $key = array_shift($keys);
+        
+        $key = key($rest);
         $suggestion = $rest[$key];
         unset($rest[$key]);
 

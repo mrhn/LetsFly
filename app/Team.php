@@ -29,15 +29,15 @@ class Team extends Model
         'name', 'priority',
     ];
 
-    public function getPriorityValueAttribute(): string
+    public function getPriorityValueAttribute(): ?float
     {
-        return self::PRIORITIES_VALUES[$this->attributes['priority']];
+        return self::PRIORITIES_VALUES[$this->attributes['priority']] ?? null;
     }
 
     public function getFitAttribute(): float
     {
         if ($this->people->isEmpty()) {
-            return 0;
+            return 0.0;
         }
         $personSkillLevel = $this->people->sum(function (Person $person): float {
             return $person->skillLevel($person->getSkill($person->skill));
