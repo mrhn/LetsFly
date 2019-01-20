@@ -72,7 +72,7 @@ class TeamService
 
             return;
         }
-        
+
         $key = key($rest);
         $suggestion = $rest[$key];
         unset($rest[$key]);
