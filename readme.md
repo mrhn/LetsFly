@@ -142,7 +142,7 @@ SkillCoeficient * EducationCoeficient * ExperienceCoeficient = A percentage
 I tryed to create a formula that took into consideration people don't need to have a PHD background to be an expert.
 All Coeficients are thought of as percentages, and the general consensus in the values are that 100% is extremely high, 75% is senior level, 50% is the middle of the pack and 25% is low skill levels.
 
-This is roughly done and considering the time frame, i am quite happy with the result. The education and skill coefficients are set manually and experience is calculated out from the idea that after 3  years of work experience in Signifly you should be up and running. Each year less then that decucts 10% from your skill level.
+This is roughly done and considering the time frame, i am quite happy with the result. The education and skill coefficients are set manually and experience is calculated out from the idea that after 3  years of work experience you should be up and running. Each year less then that decucts 10% from your skill level.
 
 Then i create all combinations of the given persons with the skills and calculated how well the team combinations fit the team. The team has to provide how many of each skill they need, like 1 manager, 2 backenders and 2 frontenders. While also providing a priority, which basicly translate to the values described above.
 
