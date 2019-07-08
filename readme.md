@@ -1,4 +1,4 @@
-# Signifanct flying
+# Lets Fly
 Is a system to compose and adjust team structures.
 
 url: http://37.139.8.134
@@ -9,7 +9,7 @@ In regards to what Tore said, rough paraphrasing "we are not trying to be a trad
 
 I felt if i should present this to a customer and sell this idea, it should be something special. Everyone can make a CRUD API, i wanted the team formation to be automatic, so the system calculates which team can handle the assignments.
 
-I chose to not include any front end, this is a backend assignment and Tore did agree with this. I thou prioritised the server setup a little more instead. Which is way more relevant for what i should do. There is a JSON API which should be more than enough fun to explore.
+I chose to not include any front end, this is a backend assignment and you seemed to agree with this. I thou prioritised the server setup a little more instead. Which is way more relevant for what i should do. There is a JSON API which should be more than enough fun to explore.
 # Adding data - Using the api
 Tweak the seeders if data needs to be added, run it usual Laravel style. There is sample data i would suggest calling the api with the following call.
 
